@@ -1,0 +1,40 @@
+.header {
+  text-align: center;
+  color: #ebc934 !important;
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #eb4034 !important;
+}
+
+.main__content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main__content--searchBar {
+  margin: auto 300px;
+}
+
+.searchBar {
+  border-radius: 20px !important;
+}
+
+.main__content--table {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.footer {
+  background-color: #eb4034 !important;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .main__content--searchBar {
+    margin: auto 30px;
+  }
+
+  .footer {
+    font-size: 12px !important;
+  }
+}
