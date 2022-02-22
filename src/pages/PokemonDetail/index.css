@@ -1,0 +1,21 @@
+.main__content--pokemon {
+  margin: 90px auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.pokemon__image {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.pokemon__info {
+  background-color: #ebc934 !important;
+  padding: 30px;
+}
+
+.pokemon__info--title {
+  padding-bottom: 10px;
+  font-size: 32px;
+}
