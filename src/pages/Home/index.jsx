@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Table, Row, Col, Layout, Input } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Table, Row, Col, Layout, Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { getAllDataPokemon } from "../../stores/actions/pokemon";
 import "./index.css";
@@ -9,6 +10,7 @@ const { Header, Footer, Content } = Layout;
 
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [dataSource, setDataSource] = useState([]);
   const [limit, setLimit] = useState(0);
@@ -22,9 +24,15 @@ const Home = () => {
     },
     {
       title: "Pokemon Detail",
-      dataIndex: "url",
+      dataIndex: "name",
       align: "center",
-      // render: (text) => <a>{text}</a>,
+      render: (name) => {
+        return (
+          <Button type="link" onClick={() => toPokemonDetail(name)}>
+            Click here!
+          </Button>
+        );
+      },
     },
   ];
 
@@ -35,6 +43,11 @@ const Home = () => {
       setLimit(res.action.payload.data.count);
       setLoading(false);
     });
+  };
+
+  const toPokemonDetail = (name) => {
+    localStorage.setItem("name", name);
+    navigate(`/pokemon/${name}`, { state: name });
   };
 
   useEffect(() => {
@@ -76,7 +89,7 @@ const Home = () => {
             </Col>
           </Row>
         </Content>
-        <Footer className="footer" style={{ textAlign: "center" }}>
+        <Footer className="footer">
           Pokemon Index ©2022 Created by Ahmad Zaky
         </Footer>
       </Layout>

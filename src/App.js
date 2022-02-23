@@ -14,7 +14,7 @@ class App extends Component {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/pokemon/" element={<PokemonDetail />} />
+            <Route path="/pokemon/:id" element={<PokemonDetail />} />
           </Routes>
         </Router>
       </Provider>
