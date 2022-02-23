@@ -7,9 +7,9 @@ export const getAllDataPokemon = (limit) => {
   };
 };
 
-// export const getDataPokemon = (id) => {
-//   return {
-//     type: "GET_DATA_POKEMON",
-//     payload: axios.get(`pokemon/${id}/`),
-//   };
-// };
+export const getDataPokemon = (name) => {
+  return {
+    type: "GET_DATA_POKEMON",
+    payload: axios.get(`pokemon/${name}/`),
+  };
+};
