@@ -1,7 +1,23 @@
 .main__content--pokemon {
-  margin: 90px auto;
+  margin: 90px auto 45px;
   padding-left: 30px;
   padding-right: 30px;
+}
+
+.main__content--buttonHome {
+  display: flex;
+  justify-content: center;
+  margin: 45px auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.to__home {
+  width: 30%;
+  background-color: #ebc934 !important;
+  color: #eb4034 !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
 }
 
 .pokemon__image {

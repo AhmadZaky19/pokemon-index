@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from "react-router-dom";
-import { Row, Col, Layout, Image } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Row, Col, Layout, Image, Button } from "antd";
 import { getDataPokemon } from "../../stores/actions/pokemon";
 import "./index.css";
 
@@ -9,6 +9,7 @@ const { Header, Footer, Content } = Layout;
 
 const PokemonDetail = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [data, setData] = useState({
@@ -115,6 +116,16 @@ const PokemonDetail = () => {
                 <h4>- Speed : {data.speed}</h4>
               </div>
             </Col>
+          </Row>
+          <Row className="main__content--buttonHome">
+            <Button
+              className="to__home"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Back to Home
+            </Button>
           </Row>
         </Content>
         <Footer className="footer">
