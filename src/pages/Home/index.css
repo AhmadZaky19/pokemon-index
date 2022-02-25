@@ -30,6 +30,37 @@
   text-align: center;
 }
 
+/* ---------------------------------------- */
+
+.navigation__homepage--search--movie {
+  background-color: #f5f6f8;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 3px;
+  text-align: left;
+  width: 100%;
+  display: none;
+}
+
+.navigation__homepage--search--movie--active {
+  background-color: #f5f6f8;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 3px;
+  text-align: left;
+  width: 100%;
+  display: block;
+}
+
+.search__key {
+  color: #000000;
+  font-weight: bold;
+}
+
+.search__result {
+  cursor: pointer;
+}
+
 @media (max-width: 480px) {
   .main__content--searchBar {
     margin: auto 30px;

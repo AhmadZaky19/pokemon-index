@@ -15,6 +15,8 @@ const Home = () => {
   const [dataSource, setDataSource] = useState([]);
   const [limit, setLimit] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  const [dataSearch, setDataSearch] = useState([]);
 
   const columns = [
     {
@@ -45,8 +47,21 @@ const Home = () => {
     });
   };
 
+  const FindPokemon = (e) => {
+    setSearch(e.target.value);
+    const searchResult = e.target.value;
+    if (search !== "") {
+      const filteredData = dataSource.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchResult.toLowerCase());
+      });
+      setDataSearch(filteredData);
+    }
+  };
+
   const toPokemonDetail = (name) => {
-    localStorage.setItem("name", name);
     navigate(`/pokemon/${name}`, { state: name });
   };
 
@@ -67,7 +82,31 @@ const Home = () => {
                 placeholder="Search pokemon ..."
                 prefix={<SearchOutlined />}
                 className="searchBar"
+                onChange={FindPokemon}
               />
+              <div
+                className={
+                  search === ""
+                    ? "navigation__homepage--search--movie"
+                    : "navigation__homepage--search--movie--active"
+                }
+              >
+                <p className="search__key">Search: {search} </p>
+                <hr className="text-dark" />
+                {dataSearch.length > 0 ? (
+                  dataSearch.map((item) => (
+                    <h3
+                      className="search__result"
+                      onClick={() => toPokemonDetail(item.name)}
+                    >
+                      {item.name}
+                    </h3>
+                  ))
+                ) : (
+                  <h3>no pokemon</h3>
+                )}
+                <hr />
+              </div>
             </Col>
           </Row>
           <Row className="main__content--table">
